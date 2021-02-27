@@ -1,5 +1,18 @@
+# Temporary files
+*~
+
 # Compiled
 *.elc
 
 # Packaging
 .cask
+
+# Emacs sessions
+/session.*
+
+
+# Caches
+.cache
+.lsp-session-v1
+eln-cache
+o

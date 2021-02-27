@@ -1,9 +1,7 @@
 
-# My Emacs config
+# My emacs config.
 
-It probably has a fuck tonne of manual depencies that I can not be
-bother to document.
+Uses use-package to fetch dependcies and has a short bit of lisp to ensure use-package is installed.
 
-Go mode for example.
 
 
