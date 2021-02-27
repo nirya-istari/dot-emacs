@@ -180,6 +180,7 @@
      (340 . "#94BFF3")
      (360 . "#DC8CC3")))
  '(vc-annotate-very-old-color "#DC8CC3")
+ '(warning-suppress-log-types '((use-package)))
  '(web-mode-enable-auto-pairing nil)
  '(web-mode-enable-auto-quoting nil)
  '(web-mode-markup-indent-offset 2))
