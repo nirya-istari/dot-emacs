@@ -18,10 +18,6 @@
   (beep)
   (y-or-n-p PROMPT))
 
-;; Set path variables.
-;; Obviously I should use a list or something. But I'm shit at lisp
-(setenv "PATH" (concat (getenv "PATH") ":/home/chuck/.cabal/bin"))
-(setq exec-path (append exec-path '("/home/chuck/.cabal/bin")))
 (setenv "PATH" (concat (getenv "PATH") ":/home/chuck/.cargo/bin"))
 (setq exec-path (append exec-path '("/home/chuck/.cargo/bin")))
 
@@ -78,7 +74,7 @@
   :ensure
   :bind (("M-o" . ace-window)))
 
--(use-package rustic
+(use-package rustic
   :ensure
   :bind (:map rustic-mode-map
               ("M-j" . lsp-ui-imenu)
