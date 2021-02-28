@@ -70,6 +70,9 @@
   (package-refresh-contents)
   (package-install 'use-package))
 
+(use-package treemacs
+  :ensure)
+
 (use-package ace-window
   :ensure
   :bind (("M-o" . ace-window)))
@@ -177,6 +180,7 @@
      (360 . "#DC8CC3")))
  '(vc-annotate-very-old-color "#DC8CC3")
  '(warning-suppress-log-types '((use-package)))
+ '(warning-suppress-types '((comp) (comp) (comp) (comp) (comp)))
  '(web-mode-enable-auto-pairing nil)
  '(web-mode-enable-auto-quoting nil)
  '(web-mode-markup-indent-offset 2))
