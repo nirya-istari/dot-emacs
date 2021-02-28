@@ -1,6 +1,9 @@
 # Temporary files
 *~
 
+# Elpa files
+/elpa
+
 # Compiled
 *.elc
 
