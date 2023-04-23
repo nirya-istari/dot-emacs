@@ -1,11 +1,4 @@
-;; Emacs Package dependencies
-;; 
-;; External Dependencies
-;; 
-;; * Cabal (with .cabal/bin)
-;; ** Agda
-;; * Cargo (with .cargo/bin).
-;; * A copy of rust's source tree in ~/opt/rust
+
 
 ;; Add extra themes to load-theme list
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
@@ -70,70 +63,29 @@
   (package-refresh-contents)
   (package-install 'use-package))
 
-(use-package treemacs
-  :ensure)
-
+(use-package flycheck :ensure)
+(use-package glsl-mode :ensure)
+(use-package go-mode :ensure)
+(use-package js2-mode :ensure)
+(use-package magit :ensure)
+(use-package meson-mode :ensure)
+(use-package nasm-mode :ensure)
+(use-package systemd :ensure)
+(use-package toml-mode :ensure)
+(use-package yaml-mode :ensure)
+(use-package zenburn-theme :ensure)
+(use-package dockerfile-mode :ensure)
+  
 (use-package ace-window
   :ensure
   :bind (("M-o" . ace-window)))
+(use-package rust-mode)
+(use-package cargo-mode)
 
-(use-package rustic
-  :ensure
-  :bind (:map rustic-mode-map
-              ("M-j" . lsp-ui-imenu)
-              ("M-?" . lsp-find-references)
-              ("C-c C-c l" . flycheck-list-errors)
-              ("C-c C-c a" . lsp-execute-code-action)
-              ("C-c C-c r" . lsp-rename)
-              ("C-c C-c q" . lsp-workspace-restart)
-              ("C-c C-c Q" . lsp-workspace-shutdown)
-              ("C-c C-c s" . lsp-rust-analyzer-status))
-  :config
-  ;; uncomment for less flashiness
-  ; (setq lsp-eldoc-hook nil)
-  ; (setq lsp-enable-symbol-highlighting nil)
-  ; (setq lsp-signature-auto-activate nil)
-
-  ;; comment to disable rustfmt on save
-  (setq rustic-format-on-save t)
-  (add-hook 'rustic-mode-hook 'rk/rustic-mode-hook))
-
-(defun rk/rustic-mode-hook ()
-  ;; so that run C-c C-c C-r works without having to confirm
-  (setq-local buffer-save-without-query t))
-
-(use-package lsp-mode
-  :ensure
-  :commands lsp
-  :custom
-  ;; what to use when checking on-save. "check" is default.
-  (lsp-rust-analyzer-cargo-watch-command "clippy")
-  (lsp-eldoc-render-all t)
-  (lsp-idle-delay 0.6)
-  :config
-  (add-hook 'lsp-mode-hook 'lsp-ui-mode))
-
-(use-package lsp-ui
-  :ensure
-  :commands lsp-ui-mode
-  :custom
-  (lsp-ui-peek-always-show t)
-  (lsp-ui-sideline-show-hover t)
-  (lsp-ui-doc-enable nil))
-
-(use-package company
+(use-package verilog-mode
   :ensure
   :custom
-  (company-idle-delay 0.5) ;; how long to wait until popup
-  ;; (company-begin-commands nil) ;; uncomment to disable popup
-  :bind
-  (:map company-active-map
-        ("C-n". company-select-next)
-        ("C-p". company-select-previous)
-        ("M-<". company-select-first)
-        ("M->". company-select-last)))
-
-(use-package flycheck :ensure)
+  (verilog-indent-lists nil))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -144,7 +96,7 @@
    ["#3F3F3F" "#CC9393" "#7F9F7F" "#F0DFAF" "#8CD0D3" "#DC8CC3" "#93E0E3" "#DCDCCC"])
  '(column-number-mode t)
  '(custom-safe-themes
-   '("bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" "f1ee3126c1aba9f3ba35bb6f17cb2190557f2223646fd6796a1eb30a9d93e850" default))
+   '("569bc616c09c389761622ca5be12031dcd7a0fe4c28b1b7154242812b694318c" "3b8284e207ff93dfc5e5ada8b7b00a3305351a3fb222782d8033a400a48eca48" "e6df46d5085fde0ad56a46ef69ebb388193080cc9819e2d6024c9c6e27388ba9" "bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" "f1ee3126c1aba9f3ba35bb6f17cb2190557f2223646fd6796a1eb30a9d93e850" default))
  '(display-time-mode t)
  '(fci-rule-color "#383838")
  '(flyspell-default-dictionary nil)
@@ -153,7 +105,7 @@
  '(nrepl-message-colors
    '("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3"))
  '(package-selected-packages
-   '(magit rustic yasnippet spacemacs-theme use-package dap-mode lsp-treemacs lsp-ui lsp-mode projectile projectile-codesearch projectile-git-autofetch projectile-ripgrep projectile-speedbar projectile-variable treemacs treemacs-projectile toml-mode toml nasm-mode glsl-mode))
+   '(transpose-frame terraform-mode dired-sidebar swift-mode nginx-mode php-mode company magit-filenotify riscv-mode rust-mode dockerfile-mode zenburn-theme yaml-mode use-package treemacs toml-mode systemd sr-speedbar nasm-mode meson-mode magit js2-mode go-mode glsl-mode))
  '(safe-local-variable-values
    '((eval setq comment-start "//" comment-end "")
      (eval setq comment-start "//" commend-end "")))
